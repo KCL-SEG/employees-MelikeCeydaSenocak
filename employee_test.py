@@ -25,7 +25,7 @@ def test_renee():
 def test_jan():
     assert jan.get_pay() == 4410
     string = str(jan)
-    regex  = 'Jan works on a contract of 150 hours at 25/hour and receives a commission for 3 contract\(s\) at 220/contract.\s+Their total pay is 4410.'
+    regex = r'Jan works on a contract of 150 hours at 25/hour and receives a commission for 3 contract\(s\) at 220/contract\. Their total pay is 4410\.'
     assert re.match(regex, string)
 
 def test_robbie():
@@ -37,5 +37,6 @@ def test_robbie():
 def test_ariel():
     assert ariel.get_pay() == 4200
     string = str(ariel)
-    regex = '^Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600.\s+Their total pay is 4200.$'
+    regex = r'Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600\. Their total pay is 4200\.'
     assert re.match(regex, string)
+    
