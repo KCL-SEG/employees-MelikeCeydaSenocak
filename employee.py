@@ -70,6 +70,7 @@ billie = SalaryEmployee('Billie', 4000)
 charlie = HourlyEmployee('Charlie', 25, 100)
 renee = CommissionEmployee('Renee', 3000, 200, 4)
 jan = CommissionEmployee('Jan', 25 * 150, 220, 3)
-robbie = BonusCommissionEmployee('Robbie', 2000, 1500)
-ariel = BonusCommissionEmployee('Ariel', 30 * 120, 600)
+robbie = BonusCommissionEmployee('Robbie', 2000, 1500, 500) 
+ariel = BonusCommissionEmployee('Ariel', 30, 120, 600) 
+
 
