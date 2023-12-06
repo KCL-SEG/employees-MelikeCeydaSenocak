@@ -60,22 +60,3 @@ renee = CommissionEmployee('Renee', 3000, 200, 4)
 jan = CommissionEmployee('Jan', 25 * 150, 220, 3)
 robbie = BonusCommissionEmployee('Robbie', 2000, 1500)
 ariel = BonusCommissionEmployee('Ariel', 30 * 120, 600)
-
-# Run tests
-print(billie.get_pay())  # Output: 4000
-print(str(billie))  # Output: "Billie works on a monthly salary of 4000. Their total pay is 4000."
-
-print(charlie.get_pay())  # Output: 2500
-print(str(charlie))  # Output: "Charlie works on a contract of 100 hours at 25/hour. Their total pay is 2500."
-
-print(renee.get_pay())  # Output: 3800
-print(str(renee))  # Output: "Renee works on a monthly salary of 3000 and receives a commission for 4 contract(s) at 200/contract. Their total pay is 3800."
-
-print(jan.get_pay())  # Output: 4410
-print(str(jan))  # Output: "Jan works on a contract of 150 hours at 25/hour and receives a commission for 3 contract(s) at 220/contract. Their total pay is 4410."
-
-print(robbie.get_pay())  # Output: 3500
-print(str(robbie))  # Output: "Robbie works on a monthly salary of 2000 and receives a bonus commission of 1500. Their total pay is 3500."
-
-print(ariel.get_pay())  # Output: 4200
-print(str(ariel))  # Output: "Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600. Their total pay is 4200."
