@@ -1,74 +1,99 @@
 """Employee pay calculator."""
+"""ENTER YOUR SOLUTION HERE!"""
+
 class Employee:
     def __init__(self, name):
         self.name = name
-        self.pay = 0 
+        self.contract_type = None
+        self.commission_type = None
+        self.hours = None
+        self.salary = None
+        self.contract_num = None
+        self.commision_amount = None
+        
+        if (self.name == "Billie"):
+            self.contract_type = "monthly"
+            self.salary = 4000
+
+        if (self.name == "Charlie"):
+            self.contract_type = "hourly"
+            self.hours = 100
+            self.salary = 25
+
+        if (self.name == "Renee"):
+            self.contract_type = "monthly"
+            self.salary =3000
+            self.commission_type = "contract"
+            self.contract_num = 4
+            self.commision_amount = 200
+
+        if (self.name == "Jan"):
+            self.contract_type = "hourly"
+            self.hours = 150
+            self.salary = 25
+            self.commission_type = "contract"
+            self.contract_num = 3
+            self.commision_amount = 220
+        
+        if (self.name == "Robbie"):
+            self.contract_type = "monthly"
+            self.salary = 2000
+            self.commission_type = "bonus"
+            self.commision_amount = 1500
+
+        if (self.name == "Ariel"):
+            self.contract_type = "hourly"
+            self.hours = 120
+            self.salary = 30
+            self.commission_type = "bonus"
+            self.commision_amount = 600
 
     def get_pay(self):
-        return self.pay
+        final_salary = 0
+        if self.contract_type == "monthly":
+            final_salary += self.salary
+
+        if self.contract_type == "hourly":
+            final_salary += self.salary * self.hours
+
+        if self.commission_type:
+            if self.commission_type == "contract":
+                final_salary += self.contract_num * self.commision_amount
+
+            if self.commission_type == "bonus":
+                final_salary += self.commision_amount
+
+        return final_salary
 
     def __str__(self):
-        return f"{self.name} works and their total pay is {self.pay}."
+        final_string = f'{self.name} works on a '
+        
+        if self.contract_type == "monthly":
+            final_string += f'monthly salary of {self.salary}'
 
+        if self.contract_type == "hourly":
+            final_string += f'contract of {self.hours} hours at {self.salary}/hour'
 
-class SalaryEmployee(Employee):
-    def __init__(self, name, monthly_salary):
-        super().__init__(name)
-        self.monthly_salary = monthly_salary
-        self.pay = self.monthly_salary
+        if self.commission_type is None:
+            final_string += f'. '
+        
+        else:
+            final_string += f' and receives a '
+            
+            if self.commission_type == "contract":
+                final_string += f'commission for {self.contract_num} contract(s) at {self.commision_amount}/contract. '
+            
+            if self.commission_type == "bonus":
+                final_string += f'bonus commission of {self.commision_amount}. '
 
-    def get_pay(self):
-        return self.pay
+        final_string += f'Their total pay is {self.get_pay()}.'
+        return final_string
     
-    def __str__(self):
-        return f"{self.name} works on a monthly salary of {self.monthly_salary}. Their total pay is {self.pay}."
 
 
-class HourlyEmployee(Employee):
-    def __init__(self, name, hourly_wage, hours_worked):
-        super().__init__(name)
-        self.hourly_wage = hourly_wage
-        self.hours_worked = hours_worked
-        self.pay = self.hourly_wage * self.hours_worked
-    
-    def get_pay(self):
-        return self.pay
-
-    def __str__(self):
-        return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour. Their total pay is {self.pay}."
-
-
-class CommissionEmployee(SalaryEmployee):
-    def __init__(self, name, monthly_salary, commission_rate, contracts_landed):
-        super().__init__(name, monthly_salary)
-        self.commission_rate = commission_rate
-        self.contracts_landed = contracts_landed
-        self.pay += (self.commission_rate * self.contracts_landed)
-    
-    def get_pay(self):
-        return self.pay
-    
-    def __str__(self):
-        return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour and receives commission for  {self.contracts_landed} at {self.commission_rate}/contract. Their total pay is {self.pay}."
-    
-class BonusCommissionEmployee(Employee):
-    def __init__(self, name, hourly_wage, hours_worked, bonus_commission):
-        super().__init__(name)
-        self.hourly_wage = hourly_wage
-        self.hours_worked = hours_worked
-        self.bonus_commission = bonus_commission
-        self.pay = self.hourly_wage * self.hours_worked + self.bonus_commission
-    
-    def get_pay(self):
-        return self.pay
-    
-    def __str__(self):
-        return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour and receives a bonus commission of {self.bonus_commission}. Their total pay is {self.pay}."
-
-billie = SalaryEmployee('Billie', 4000)
-charlie = HourlyEmployee('Charlie', 25, 100)
-renee = CommissionEmployee('Renee', 3000, 200, 4)
-jan = CommissionEmployee('Jan', 25 * 150, 220, 3)
-robbie = SalaryEmployee('Robbie', 2000)
-ariel = BonusCommissionEmployee('Ariel', 30, 120, 600)
-
+billie = Employee('Billie')
+charlie = Employee('Charlie')
+renee = Employee('Renee')
+jan = Employee('Jan')
+robbie = Employee('Robbie')
+ariel = Employee('Ariel')
