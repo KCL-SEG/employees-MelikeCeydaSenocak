@@ -43,21 +43,14 @@ class CommissionEmployee(SalaryEmployee):
         super().__init__(name, monthly_salary)
         self.commission_rate = commission_rate
         self.contracts_landed = contracts_landed
-        self.pay += self.commission_rate * self.contracts_landed
-
-    def get_pay(self):
-        return self.pay
-    
-    def __str__(self):
-        return f"{self.name} works on a monthly salary of {self.monthly_salary} and receives a commission for {self.contracts_landed} contract(s) at {self.commission_rate}/contract. Their total pay is {self.pay}."
-
+        self.pay += (self.commission_rate * self.contracts_landed)  
 
 class BonusCommissionEmployee(SalaryEmployee):
     def __init__(self, name, monthly_salary, bonus_commission):
         super().__init__(name, monthly_salary)
         self.bonus_commission = bonus_commission
-        self.pay += self.bonus_commission
-    
+        self.pay += self.bonus_commission  
+
     def get_pay(self):
         return self.pay
 
