@@ -1,0 +1,3 @@
+2023.12.06 21:11:11 INFO  Started: Metals version 1.1.0 in folders '/Users/melikeceydasenocak/employees-MelikeCeydaSenocak' for client Visual Studio Code 1.84.2.[0m
+2023.12.06 21:11:12 WARN  Build server is not auto-connectable.[0m
+2023.12.06 21:11:12 WARN  no build tool detected in workspace '/Users/melikeceydasenocak/employees-MelikeCeydaSenocak'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
