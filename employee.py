@@ -65,12 +65,6 @@ class BonusCommissionEmployee(Employee):
     def __str__(self):
         return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour and receives a bonus commission of {self.bonus_commission}. Their total pay is {self.pay}."
 
-
-ariel = BonusCommissionEmployee('Ariel', 30, 120, 600)
-
-print(ariel.get_pay())  # Output: 4200
-print(str(ariel))  # Output: "Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600. Their total pay is 4200."
-
         
 billie = SalaryEmployee('Billie', 4000)
 charlie = HourlyEmployee('Charlie', 25, 100)
