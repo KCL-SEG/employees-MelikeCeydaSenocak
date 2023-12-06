@@ -46,8 +46,8 @@ class CommissionEmployee(SalaryEmployee):
         self.pay += (self.commission_rate * self.contracts_landed)
     
     def __str__(self):
-        return f"{self.name} works on a monthly salary of {self.monthly_salary} and receives a commission for {self.contracts_landed} contract(s) at {self.commission_rate}/contract. Their total pay is {self.pay}."
-
+        return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour and receives a commission for {self.contracts_landed} contracts at {self.commission_rate}/contract. Their total pay is {self.pay}."
+    
 class BonusCommissionEmployee(SalaryEmployee):
     def __init__(self, name, monthly_salary, bonus_commission):
         super().__init__(name, monthly_salary)
@@ -55,7 +55,7 @@ class BonusCommissionEmployee(SalaryEmployee):
         self.pay += self.bonus_commission
     
     def __str__(self):
-        return f"{self.name} works on a monthly salary of {self.monthly_salary} and receives a bonus commission of {self.bonus_commission}. Their total pay is {self.pay}."
+        return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour and receives a bonus commission of {self.bonus_commission}. Their total pay is {self.pay}."
 
 billie = SalaryEmployee('Billie', 4000)
 charlie = HourlyEmployee('Charlie', 25, 100)
