@@ -49,25 +49,33 @@ class CommissionEmployee(SalaryEmployee):
         return self.pay
     
     def __str__(self):
-        return f"{self.name} works on a monthly salary of {self.monthly_salary} and receives a commission for {self.contracts_landed} contract(s) at {self.commission_rate}/contract. Their total pay is {self.pay}."
+        return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour and receives commission for  {self.contracts_landed} at {self.commission_rate}/contract. Their total pay is {self.pay}."
     
-class BonusCommissionEmployee(SalaryEmployee):
-    def __init__(self, name, monthly_salary, bonus_commission):
-        super().__init__(name, monthly_salary)
+class BonusCommissionEmployee(Employee):
+    def __init__(self, name, hourly_wage, hours_worked, bonus_commission):
+        super().__init__(name)
+        self.hourly_wage = hourly_wage
+        self.hours_worked = hours_worked
         self.bonus_commission = bonus_commission
-        self.pay += self.bonus_commission
+        self.pay = self.hourly_wage * self.hours_worked + self.bonus_commission
     
     def get_pay(self):
         return self.pay
     
     def __str__(self):
-        return f"{self.name} works on a monthly salary of {self.monthly_salary} and receives a bonus commission of {self.bonus_commission}. Their total pay is {self.pay}."
+        return f"{self.name} works on a contract of {self.hours_worked} hours at {self.hourly_wage}/hour and receives a bonus commission of {self.bonus_commission}. Their total pay is {self.pay}."
 
+
+ariel = BonusCommissionEmployee('Ariel', 30, 120, 600)
+
+print(ariel.get_pay())  # Output: 4200
+print(str(ariel))  # Output: "Ariel works on a contract of 120 hours at 30/hour and receives a bonus commission of 600. Their total pay is 4200."
+
+        
 billie = SalaryEmployee('Billie', 4000)
 charlie = HourlyEmployee('Charlie', 25, 100)
 renee = CommissionEmployee('Renee', 3000, 200, 4)
 jan = CommissionEmployee('Jan', 25 * 150, 220, 3)
 robbie = BonusCommissionEmployee('Robbie', 2000, 1500)
 ariel = BonusCommissionEmployee('Ariel', 30 * 120, 600)
-
 
